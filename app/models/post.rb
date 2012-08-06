@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
                    # :path => ":rails_root/public:url"
                     :url => "/assets/:class/:attachment/:id/:style/:filename",
                     :path => ":rails_root/public:url"
+
+  validates_presence_of :content
                    
 
 end

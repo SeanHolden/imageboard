@@ -1,11 +1,23 @@
 <% @post.comments.each do |comment| %>
-  <div class="comment">
-    <div class="<%= cycle('comment_odd','comment_even') %>">
+  
+  <% if comment.photo_updated_at %>
+    <div class="comment">
+  <% else %>
+    <div class="comment_without_image" >
+  <% end %>
+      <div class="<%= cycle('comment_odd','comment_even') %>">
+        
+        <% if comment.photo_updated_at %>
+          <div class="image">
+            <%= link_to image_tag(comment.photo.url(:small)), comment.photo.url(:original) %><br />
+            <%= link_to "Delete comment", comment, :method => :delete %>
+          </div>
+        <% end %>
+
       <p>
       	<span class="details">
           <%= comment.created_at.strftime("%d/%m/%y %I:%M:%p") %>
           
-          <%# if username is empty, name = anonymous %>
           <% if comment.username == "" %>
             <%= comment.username = "Anonymous" %>:
           <% else %>
@@ -15,7 +27,11 @@
         </span>
       </p>
       <p><%= comment.content %></p>
-      <%= link_to "Destroy comment", comment, :method => :delete %>
+
+      <% if !comment.photo_updated_at %>
+        <%= link_to "Delete comment", comment, :method => :delete %>
+      <% end %>
+
     </div>
   </div>
 <% end %>

@@ -1,0 +1,26 @@
+<% if @post.photo_updated_at %>
+  <div class="post_show">
+<% else %>
+  <div class="post_show_without_image">
+ <% end %>
+
+    <div class="post_odd">
+  	
+  	  <% if @post.photo_updated_at %>
+  	    <div class="image">
+          <%= link_to image_tag(@post.photo.url(:small)), @post.photo.url(:original) %>
+  	    </div>
+  	  <% end %>
+    
+      <span class="details">
+        <p><%= @post.created_at.strftime("%d/%m/%y %I:%M%p") %>
+        <span class="username"><%= @post.username %>:</span></p>
+      </span>
+      <p><%= @post.content %></p>
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Back', posts_path %>
+    </div>
+  </div>
+
+
+

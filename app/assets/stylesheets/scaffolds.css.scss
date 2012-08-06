@@ -1,5 +1,4 @@
 body {
-  background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -31,7 +30,11 @@ div {
   color: green; }
 
 #alert {
-  color: red; }
+  color: red;
+  margin-bottom: 10px;
+  padding: 2px;
+  border: 2px solid red;
+  background-color: #FFF; }
 
 .field_with_errors {
   padding: 2px;

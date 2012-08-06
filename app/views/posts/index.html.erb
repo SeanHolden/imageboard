@@ -1,35 +1,19 @@
-<h1 class="header">Home</h1>
-
-<% @posts.each do |post| %>
-  <%# if an image was uploaded %>
-  <% if post.photo_updated_at %>
-    <div class="post">
-  <% else %>
-    <div class="post_without_image">
+<div class="page_content">
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %> 
+  <% if alert %>
+    <p id="alert"><%= alert %></p>
   <% end %>
 
-    <div class="<%= cycle('post_even','post_odd') %>">
+  <h1 class="header">Home</h1>
 
-      <% if post.photo_updated_at %>
-        <div class="image">
-          <%= image_tag post.photo.url(:small) %>
-        </div>
-      <% end %>
+  <%= render 'form' %>
 
-      <span class="details">
-        <p><%= post.created_at.strftime("%d/%m/%y %I:%M%p") %>
-        <span class="username"><%= post.username %>:</span></p>
-      </span>
+  <%= render 'posts' %>
 
-      <p><%= truncate(post.content, :length => 500) %></p>
-      <%= link_to 'Reply', post %> |
-      <%= link_to 'Delete', post, 
-                            method: :delete,
-                            data: { 
-                            confirm: 'Are you sure?'} %>
-    </div>
-  </div>
-<% end %>
+  <br />
+
+</div>
 
 
-<%= link_to 'New Post', new_post_path %>
