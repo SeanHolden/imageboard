@@ -14,13 +14,24 @@
     
       <span class="details">
         <p><%= @post.created_at.strftime("%d/%m/%y %I:%M%p") %>
-        <span class="username"><%= @post.username %>:</span></p>
+        
+        <span class="username">
+        <% if @post.username == "" %>
+          <%= @post.username = "Anonymous" %>:
+        <% else %>
+          <%= @post.username %>:
+        <% end %>
+      </span>
+
+        </p>
       </span>
       <p><%= @post.content %></p>
       <%= link_to 'Edit', edit_post_path(@post) %> |
       <%= link_to 'Back', posts_path %>
     </div>
   </div>
+
+
 
 
 

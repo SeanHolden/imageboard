@@ -20,6 +20,10 @@ body {
   padding-bottom: 10px;
 }
 
+.username {
+    font-weight: bold;
+  }
+
 .comment {	
 
   .image {
@@ -105,10 +109,6 @@ body {
     border-bottom: 2px solid black;
   }
 
-  .username {
-  	font-weight: bold;
-  }
-
   .image {
     float: left;
     margin: 2px 5px 0 2px;
@@ -143,9 +143,6 @@ body {
     border-bottom: 2px solid black;
   }
 
-  .username {
-    font-weight: bold;
-  }
 }
 
 .post_show {
@@ -156,10 +153,6 @@ body {
 
   .details{
     font-style: italic;
-  }
-
-  .username {
-  	font-weight: bold;
   }
 
   .image {
@@ -181,7 +174,4 @@ body {
     font-style: italic;
   }
 
-  .username {
-    font-weight: bold;
-  }
 }

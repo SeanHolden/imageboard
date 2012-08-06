@@ -18,11 +18,13 @@
       	<span class="details">
           <%= comment.created_at.strftime("%d/%m/%y %I:%M:%p") %>
           
-          <% if comment.username == "" %>
-            <%= comment.username = "Anonymous" %>:
-          <% else %>
-            <%= comment.username %>:
-          <% end %>
+          <span class="username">
+            <% if comment.username == "" %>
+              <%= comment.username = "Anonymous" %>:
+            <% else %>
+              <%= comment.username %>:
+            <% end %>
+          </span>
 
         </span>
       </p>

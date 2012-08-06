@@ -16,7 +16,17 @@
 
       <span class="details">
         <p><%= post.created_at.strftime("%d/%m/%y %I:%M%p") %>
-        <span class="username"><%= post.username %>:</span></p>
+        
+        <span class="username">
+          <% if post.username == "" %>
+            <%= post.username = "Anonymous" %>:
+          <% else %>
+            <%= post.username %>:
+          <% end %>
+          </span>
+
+        </p>
+
       </span>
 
       <p><%= truncate(post.content, :length => 500) %></p>
@@ -28,3 +38,5 @@
     </div>
   </div>
 <% end %>
+
+
