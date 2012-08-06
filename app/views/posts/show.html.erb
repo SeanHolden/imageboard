@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+
+<div class="post_show">
+  <div class="post_odd">
+  	
+  	<% if @post.photo_updated_at %>
+  	  <div class="image">
+  	    <%= image_tag @post.photo.url(:small) %>
+  	  </div>
+  	<% end %>
+
+    <p><%= @post.created_at.strftime("%d/%m/%y %I:%M%p") %></p>
+    <p class="username"><%= @post.username %>:</p>
+    <p><%= @post.content %></p>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Back', posts_path %>
+  </div>
+</div>
+
+<p><span class="comments_header">Comments:</span></p>
+
+<%= render 'comment' %>
+
+<%= render 'comment_form' %>

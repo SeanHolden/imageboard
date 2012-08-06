@@ -1,0 +1,19 @@
+<h1 class="header">Home</h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <div class="<%= cycle('post_even','post_odd') %>">
+      <p><%= post.created_at.strftime("%d/%m/%y %I:%M%p") %></p>
+      <p class="username"><%= post.username %>:</p>
+      <p><%= post.content %></p>
+      <%= link_to 'Reply', post %> |
+      <%= link_to 'Delete', post, 
+                            method: :delete,
+                            data: { 
+                            confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+<% end %>
+
+
+<%= link_to 'New Post', new_post_path %>

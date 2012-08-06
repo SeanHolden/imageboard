@@ -1,0 +1,67 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	width: 800px;
+	margin: auto;
+}
+
+.header {
+  padding-bottom: 10px;
+}
+
+.comment {	
+  .details{
+  	font-style: italic;
+  }
+  .comment_odd {
+    background-color: #B3F36D;
+  }
+  .comment_even {
+  	background-color: #98F33D;
+  }
+}
+
+.comments_header {
+  font-weight: bold;
+}
+
+.post {
+  .post_odd {
+    background-color: #FFBA73;
+  }
+
+  .post_even {
+    background-color: #FFA040;
+  }
+
+  .username {
+  	font-weight: bold;
+  }
+}
+
+.post_show {
+  border: 2px dotted black;
+  background-color: #98F33D;
+  margin-bottom: 10px;
+  min-height: 150px;
+
+  .username {
+  	font-weight: bold;
+  }
+
+  .image {
+    float: left;
+    margin: 2px 5px 0 2px;
+    img {
+      border: 2px solid black;
+    }
+  }
+}

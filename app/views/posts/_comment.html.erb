@@ -1,0 +1,21 @@
+<% @post.comments.each do |comment| %>
+  <div class="comment">
+    <div class="<%= cycle('comment_odd','comment_even') %>">
+      <p>
+      	<span class="details">
+          <%= comment.created_at.strftime("%d/%m/%y %I:%M:%p") %>
+          
+          <%# if username is empty, name = anonymous %>
+          <% if comment.username == "" %>
+            <%= comment.username = "Anonymous" %>:
+          <% else %>
+            <%= comment.username %>:
+          <% end %>
+
+        </span>
+      </p>
+      <p><%= comment.content %></p>
+      <%= link_to "Destroy comment", comment, :method => :delete %>
+    </div>
+  </div>
+<% end %>
