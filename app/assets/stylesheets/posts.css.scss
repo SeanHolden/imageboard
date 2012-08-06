@@ -18,6 +18,7 @@ body {
 }
 
 .comment {	
+
   .details{
   	font-style: italic;
   }
@@ -34,24 +35,21 @@ body {
 }
 
 .post {
+
+  .details{
+    font-style: italic;
+  }
+
   .post_odd {
-    background-color: #FFBA73;
+    background-color: #B3F36D;
+    min-height: 132px;
+    min-width: 30px;
   }
 
   .post_even {
-    background-color: #FFA040;
+    background-color: #98F33D;
+    min-height: 132px;
   }
-
-  .username {
-  	font-weight: bold;
-  }
-}
-
-.post_show {
-  border: 2px dotted black;
-  background-color: #98F33D;
-  margin-bottom: 10px;
-  min-height: 150px;
 
   .username {
   	font-weight: bold;
@@ -63,5 +61,63 @@ body {
     img {
       border: 2px solid black;
     }
+  }
+}
+
+.post_without_image {
+  .details{
+    font-style: italic;
+  }
+
+  .post_odd {
+    background-color: #B3F36D;
+    min-height: 50px;
+  }
+
+  .post_even {
+    background-color: #98F33D;
+    min-height: 50px;
+  }
+
+  .username {
+    font-weight: bold;
+  }
+}
+
+.post_show {
+  border: 2px dotted black;
+  background-color: #98F33D;
+  margin-bottom: 10px;
+  min-height: 132px;
+
+  .details{
+    font-style: italic;
+  }
+
+  .username {
+  	font-weight: bold;
+  }
+
+  .image {
+    float: left;
+    margin: 2px 5px 0 2px;
+    img {
+      border: 2px solid black;
+    }
+  }
+}
+
+.post_show_without_image {
+  border: 2px dotted black;
+  background-color: #98F33D;
+  margin-bottom: 10px;
+  min-height: 50px;
+
+  .details{
+    font-style: italic;
+  }
+
+  .username {
+    font-weight: bold;
   }
 }

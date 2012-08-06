@@ -1,11 +1,27 @@
 <h1 class="header">Home</h1>
 
 <% @posts.each do |post| %>
-  <div class="post">
+  <%# if an image was uploaded %>
+  <% if post.photo_updated_at %>
+    <div class="post">
+  <% else %>
+    <div class="post_without_image">
+  <% end %>
+
     <div class="<%= cycle('post_even','post_odd') %>">
-      <p><%= post.created_at.strftime("%d/%m/%y %I:%M%p") %></p>
-      <p class="username"><%= post.username %>:</p>
-      <p><%= post.content %></p>
+
+      <% if post.photo_updated_at %>
+        <div class="image">
+          <%= image_tag post.photo.url(:small) %>
+        </div>
+      <% end %>
+
+      <span class="details">
+        <p><%= post.created_at.strftime("%d/%m/%y %I:%M%p") %>
+        <span class="username"><%= post.username %>:</span></p>
+      </span>
+
+      <p><%= truncate(post.content, :length => 500) %></p>
       <%= link_to 'Reply', post %> |
       <%= link_to 'Delete', post, 
                             method: :delete,

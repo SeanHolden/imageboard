@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
 
-<div class="post_show">
+<% if @post.photo_updated_at %>
+  <div class="post_show">
+<% else %>
+  <div class="post_show_without_image">
+<% end %>
+
   <div class="post_odd">
   	
   	<% if @post.photo_updated_at %>
@@ -9,17 +14,19 @@
   	    <%= image_tag @post.photo.url(:small) %>
   	  </div>
   	<% end %>
-
-    <p><%= @post.created_at.strftime("%d/%m/%y %I:%M%p") %></p>
-    <p class="username"><%= @post.username %>:</p>
+    
+    <span class="details">
+      <p><%= @post.created_at.strftime("%d/%m/%y %I:%M%p") %>
+      <span class="username"><%= @post.username %>:</span></p>
+    </span>
     <p><%= @post.content %></p>
     <%= link_to 'Edit', edit_post_path(@post) %> |
     <%= link_to 'Back', posts_path %>
   </div>
 </div>
 
-<p><span class="comments_header">Comments:</span></p>
-
 <%= render 'comment' %>
+
+<p><span class="comments_header">Reply to this post:</span></p>
 
 <%= render 'comment_form' %>
